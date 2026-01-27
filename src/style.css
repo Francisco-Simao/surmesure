@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#titulo { 
+    font-family: "Kings", cursive;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+nav { 
+    background-color: #9d2b2bdb;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.carousel {
+    padding-top: 50px; /* altura da navbar */
+}
+
+.quem-somos {
+    padding: 50px 0;
+    background-color: #9d2b2bdb;
+    text-align: center;
+}
+
+.linha-dourada {
+    width: 60px;
+    height: 2px;
+    background-color: #b08d57; /* dourado */
+    margin: 0 auto 30px auto;
+}
+
+.titulo-quem-somos {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    color: #d9d1d1; /* vermelho */
+    margin-bottom: 30px;
+}
+
+.texto-quem-somos {
+    max-width: 650px;
+    margin: 0 auto 20px auto;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: #ffffff;
+    line-height: 1.9;
+}
+
