@@ -1,23 +1,48 @@
 :root{
   --bg:#0b0b0b;
-  --bg-soft:#141414;
+  --bg-canva: #791401;
+  --bg-soft:#141414d6;
   --red:#c4475a;
   --text:#f2f2f2;
   --muted:#a9a9a9;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 body{
-  background:var(--bg);
+  background-image: url("../img/Red\ and\ White\ Modern\ Fashion\ Collection\ Presentation.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+
   color:var(--text);
   font-family:'Inter',sans-serif;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.109); /* escurece */
+  z-index: -1;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
 /* HEADER */
 header{
+  position: fixed;
+  margin:5px;
+  padding:0 5px;
+  border-radius: 15px;
   display: flex;
-  margin: 2%;
-  background:transparent;
+  justify-content: center;
+  background:var(--bg-soft);
   z-index:10;
+
 }
 
 header nav {
@@ -25,7 +50,7 @@ header nav {
     align-items: center;
 }
 header nav a{
-    color: #ccc;
+    color: #ba992e;
     padding: 10px;
     text-decoration: none;
 }
@@ -33,6 +58,7 @@ header nav a{
 .logo{
   font-family:'Playfair Display',serif;
   font-size:1.4rem;
+  padding: 5px;
 }
 .logo span{color:var(--red)}
 
@@ -132,7 +158,7 @@ section h2 span{color:var(--red)}
 }
 .about-img{
   background:
-    linear-gradient(to top,rgba(0,0,0,.8),transparent),
+    linear-gradient(to top,rgba(29, 27, 27, 0.8),transparent),
     url(../img/pexels-cottonbro-6069090.jpg);
   background-size:cover;
   background-position:right;
@@ -155,7 +181,7 @@ section h2 span{color:var(--red)}
 
 /* DIFFERENTIALS */
 .diff{
-  background:var(--bg-soft);
+  color: var(--text);
 }
 .diff-grid{
   margin-top:4rem;
@@ -164,7 +190,7 @@ section h2 span{color:var(--red)}
   gap:2rem;
 }
 .diff-card{
-  background:rgba(255,255,255,.03);
+  background:rgba(55, 55, 55, 0.995);
   padding:2.5rem;
   border-radius:26px;
 }
