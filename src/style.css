@@ -244,6 +244,24 @@ section h2 span{color:var(--red)}
   border-radius:20px;
 }
 
+.preview-box{
+    margin-top:20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:300px;
+}
+
+.preview-roupa{
+    width:180px;
+    height:250px;
+    background:#ccc;
+    border-radius:20px;
+    transition:0.4s;
+    box-shadow:0 20px 40px rgba(0,0,0,0.4);
+}
+
+
 /* RESPONSIVE */
 @media(max-width:900px){
   .about{grid-template-columns:1fr}
