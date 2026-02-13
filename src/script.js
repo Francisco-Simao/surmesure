@@ -5,6 +5,8 @@
 const steps = document.querySelectorAll(".steps button");
 const itemsContainer = document.querySelector(".items");
 const preview = document.getElementById("preview-roupa");
+const previewBase = document.getElementById("preview-base");
+const colorOverlay = document.getElementById("color-overlay");
 
 let currentStep = 0;
 
@@ -49,10 +51,9 @@ function renderItems() {
 // Selecionar item
 function selecionarItem(valor) {
 
-    // Salva escolha
     if (currentStep === 0) {
-        escolha.peca = valor;
-        atualizarPreviewPeca(valor);
+        escolha.peca = formatarNome(valor);
+        atualizarImagemBase();
     }
 
     if (currentStep === 1) {
@@ -61,15 +62,13 @@ function selecionarItem(valor) {
 
     if (currentStep === 2) {
         escolha.cor = valor;
-        atualizarPreviewCor(valor);
+        atualizarCor();
     }
 
     if (currentStep === 3) {
         escolha.detalhes = valor;
-        atualizarPreviewDetalhe(valor);
     }
 
-    // Vai automaticamente para próxima etapa
     if (currentStep < 3) {
         currentStep++;
         atualizarEtapas();
@@ -91,6 +90,31 @@ function atualizarPreviewPeca(valor) {
     } else {
         preview.style.height = "250px";
     }
+}
+
+function formatarNome(texto) {
+    return texto
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/\s+/g, "");
+}
+
+function atualizarImagemBase() {
+    previewBase.src = `img/${escolha.peca}.png`;
+}
+
+function atualizarCor() {
+
+    const cores = {
+        "Preto": "#111111",
+        "Branco": "#ffffff",
+        "Azul Marinho": "#1c2a48",
+        "Cinza": "#666666",
+        "Bordô": "#6a1b2e"
+    };
+
+    colorOverlay.style.background = cores[escolha.cor];
 }
 
 // Preview cor
