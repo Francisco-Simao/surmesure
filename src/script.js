@@ -106,16 +106,17 @@ function atualizarImagemBase() {
 
 function atualizarCor() {
 
-    const cores = {
-        "Preto": "#111111",
-        "Branco": "#ffffff",
-        "Azul Marinho": "#1c2a48",
-        "Cinza": "#666666",
-        "Bordô": "#6a1b2e"
+    const filtros = {
+        "Preto": "brightness(0.3)",
+        "Branco": "brightness(1.2)",
+        "Azul Marinho": "sepia(1) hue-rotate(180deg) saturate(5)",
+        "Cinza": "grayscale(1)",
+        "Bordô": "sepia(1) hue-rotate(320deg) saturate(5)"
     };
 
-    colorOverlay.style.background = cores[escolha.cor];
+    previewBase.style.filter = filtros[escolha.cor];
 }
+
 
 // Preview cor
 function atualizarPreviewCor(valor) {

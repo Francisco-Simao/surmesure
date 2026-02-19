@@ -34,17 +34,27 @@ html {
 
 /* HEADER */
 header{
-  position: fixed;
-  margin:5px;
-  padding:0 5px;
-  border-radius: 15px;
+  position:fixed;
+  width:100%;
   display: flex;
   justify-content: center;
-  background:var(--bg-soft);
-  z-index:10;
+
+  z-index:100;
+
 
 }
 
+.div-header {
+  display:flex;
+  width: 90%;
+  justify-content:space-between;
+  align-items:center;
+  margin:5px;
+  padding:2px 5px;
+  border-radius: 15px;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(10px);
+}
 header nav {
     display: flex;
     align-items: center;
@@ -55,45 +65,97 @@ header nav a{
     text-decoration: none;
 }
 
+
+header nav a{
+    color: #ba992e;
+    text-decoration: none;
+}
+
 .logo{
   font-family:'Playfair Display',serif;
   font-size:1.4rem;
-  padding: 5px;
 }
 .logo span{color:var(--red)}
 
 /* HERO */
 .hero{
   height:100vh;
-  background:
-    radial-gradient(circle at center,rgba(0,0,0,.2),rgba(0,0,0,.95)),
-    url('https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1600&q=80');
-  background-size:cover;
-  background-position:center;
-  display: flex;
+  position:relative;
+  overflow:hidden;
+}
 
+/* BLOCO CENTRALIZADO NA ÁREA VERDE */
+.hero-left{
+  position:absolute;
+  top:18%;
+  left:50%;
+  transform:translateX(-50%);
+  text-align:center;
+  z-index:5;
+  width:600px;
 }
-.hero-content{
-  max-width:720px;
-}
-.hero small{
-  letter-spacing:.35em;
-  color:var(--red);
-}
-.hero h1{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(3.5rem,7vw,5.5rem);
+
+/* Ajuste do título */
+.hero-left h1{
+  font-size:4.5rem;
   margin:1rem 0;
 }
-.hero h1 span{color:var(--red)}
-.hero p{
-  color:var(--muted);
-  max-width:520px;
+
+/* Stats alinhadas */
+.stats{
+  display:flex;
+  justify-content:center;
+  margin-top:2rem;
+} 
+
+.img-hero {
+  background-color: green;
+  width: 400px;
+  height: 600px;
+  background: url(/img/ChatGPT\ Image\ 17\ de\ fev.\ de\ 2026\,\ 11_16_27.png);
+  background-size: cover;
+  background-position: right;
+}
+
+
+
+.hero-left small{
+  letter-spacing:6px;
+  color:#f1c40f;
+}
+
+.hero-left h1 span{
+  color:#c4475a;
+}
+
+/* STATS */
+
+.stat{
   margin-bottom:2rem;
 }
 
-.hero .actions a{
-  margin-right:1rem;
+.stat span{
+  font-size:1.8rem;
+  font-weight:600;
+}
+
+.stat p{
+  font-size:1rem;
+}
+
+/* IMAGEM DIREITA */
+.hero-right{
+  position:absolute;
+  right:0;
+  bottom:0;
+  height:90%;
+  display:flex;
+  align-items:flex-end;
+}
+
+.hero-right img{
+  height:100%;
+  object-fit:contain;
 }
 
 .btn{
@@ -190,18 +252,25 @@ section h2 span{color:var(--red)}
   gap:2rem;
 }
 .diff-card{
-  background:rgba(55, 55, 55, 0.995);
+  backdrop-filter:blur(10px);
+  background:rgba(255, 255, 255, 0.04);
   padding:2.5rem;
   border-radius:26px;
 }
-.diff-card span{color:var(--red);font-size:1.4rem}
-.diff-card h3{margin:.6rem 0}
-.diff-card p{color:var(--muted);font-size:.9rem}
+.diff-card span{
+  color:#f1c40f;
+  font-size:1.4rem;
+}
+.diff-card h3{
+  margin:.6rem 0;
+}
+.diff-card p{
+  color:var(--muted);
+  font-size:.9rem;
+}
 
 /* CUSTOM CREATION */
 .create{
-  /*background:radial-gradient(circle at center,#000,#000 60%);*/
-    background-image: url("../img/Red\ and\ White\ Modern\ Fashion\ Collection\ Presentation (1).png");
   background-size: cover;
   background-position: center;
   background-attachment: fix
@@ -215,7 +284,7 @@ section h2 span{color:var(--red)}
 .steps button{
   width:100%;
   background:transparent;
-  border:1px solid #222;
+  border:1px solid #f1c40f64;
   color:#ccc;
   padding:1rem;
   margin-bottom:1rem;
@@ -238,6 +307,12 @@ section h2 span{color:var(--red)}
   border-radius:26px;
   text-align:center;
 }
+
+.item:hover {
+  transition: .3s;
+  border:1px solid #f1c40f64;
+}
+
 .selection{
   background:rgba(255,255,255,.03);
   border-radius:30px;
@@ -250,32 +325,38 @@ section h2 span{color:var(--red)}
 
 }
 
+/*
 .preview-container{
-  position:relative;
-  width:100%;
-  max-height:350px;
   display:flex;
   justify-content:center;
   align-items:center;
 }
 
-.preview-container img{
-  max-height:320px;
-  object-fit:contain;
+.preview-image{
   position:relative;
-  z-index:2;
-  filter: brightness(1.05);
+  width:fit-content;
+}
+
+.preview-image img{
+  display:block;
+  max-height:320px;
 }
 
 #color-overlay{
   position:absolute;
-  inset:0;
-  background:#ffffff;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
   mix-blend-mode:multiply;
   opacity:0.85;
-  z-index:3;
   pointer-events:none;
 }
+*/
+
+
+
+
 
 
 /* RESPONSIVE */
