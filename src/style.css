@@ -110,8 +110,8 @@ header nav a{
 
 .img-hero {
   background-color: green;
-  width: 400px;
-  height: 600px;
+  width: 60vw;
+  height: 70vh;
   background: url(/img/ChatGPT\ Image\ 17\ de\ fev.\ de\ 2026\,\ 11_16_27.png);
   background-size: cover;
   background-position: right;
@@ -331,39 +331,73 @@ section h2 span{color:var(--red)}
   transition: opacity 0.3s ease;
 }
 
-/*
-.preview-container{
-  display:flex;
-  justify-content:center;
-  align-items:center;
+
+.footer {
+  margin-top: 6rem;
+  background: #0b0b0b;
+  border-top: 1px solid #ba992e;
+  padding: 4rem 7vw;
 }
 
-.preview-image{
-  position:relative;
-  width:fit-content;
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
-.preview-image img{
-  display:block;
-  max-height:320px;
+.footer-brand h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
 }
 
-#color-overlay{
-  position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
-  mix-blend-mode:multiply;
-  opacity:0.85;
-  pointer-events:none;
+.footer-brand span {
+  color: var(--red);
 }
-*/
 
+.footer-brand p {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
 
+.footer-social {
+  display: flex;
+  gap: 1rem;
+}
 
+.social-btn {
+  padding: 0.7rem 1.4rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: 0.3s ease;
+  border: 1px solid #ba992e;
+  color: #ba992e;
+}
 
+.social-btn:hover {
+  background: #ba992e;
+  color: #0b0b0b;
+}
 
+.footer-info {
+  text-align: right;
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-info {
+    text-align: center;
+  }
+}
 
 /* RESPONSIVE */
 @media(max-width:900px){
