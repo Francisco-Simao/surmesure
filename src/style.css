@@ -325,6 +325,12 @@ section h2 span{color:var(--red)}
 
 }
 
+
+.preview-image img{
+
+  transition: opacity 0.3s ease;
+}
+
 /*
 .preview-container{
   display:flex;

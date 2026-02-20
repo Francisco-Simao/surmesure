@@ -4,9 +4,7 @@
 
 const steps = document.querySelectorAll(".steps button");
 const itemsContainer = document.querySelector(".items");
-const preview = document.getElementById("preview-roupa");
 const previewBase = document.getElementById("preview-base");
-const colorOverlay = document.getElementById("color-overlay");
 
 let currentStep = 0;
 
@@ -19,7 +17,7 @@ let escolha = {
 
 // Opções
 const opcoes = [
-    ["Camisa", "Calça", "Blazer", "Vestido", "Saia", "Colete"],
+    ["Camisa", "Calça", "Blazer", "Vestido", "Saia"],
     ["Algodão Italiano", "Linho Premium", "Lã Fria", "Seda", "Veludo"],
     ["Preto", "Branco", "Azul Marinho", "Cinza", "Bordô"],
     ["Botão Dourado", "Lapela Fina", "Bolso Interno", "Punho Francês"]
@@ -101,21 +99,29 @@ function formatarNome(texto) {
 }
 
 function atualizarImagemBase() {
-    previewBase.src = `img/${escolha.peca}.png`;
+    previewBase.src = `img/${escolha.peca}-branco.png`;
 }
 
 function atualizarCor() {
 
-    const filtros = {
-        "Preto": "brightness(0.3)",
-        "Branco": "brightness(1.2)",
-        "Azul Marinho": "sepia(1) hue-rotate(180deg) saturate(5)",
-        "Cinza": "grayscale(1)",
-        "Bordô": "sepia(1) hue-rotate(320deg) saturate(5)"
+    const mapaCores = {
+        "Preto": "preto",
+        "Branco": "branco",
+        "Azul Marinho": "azulmarinho",
+        "Cinza": "cinza",
+        "Bordô": "bordo"
     };
 
-    previewBase.style.filter = filtros[escolha.cor];
+    const corArquivo = mapaCores[escolha.cor];
+
+    previewBase.style.opacity = "0";
+
+    setTimeout(() => {
+        previewBase.src = `img/${escolha.peca}-${corArquivo}.png`;
+        previewBase.style.opacity = "1";
+    }, 200);
 }
+
 
 
 // Preview cor
