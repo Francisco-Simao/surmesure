@@ -286,6 +286,8 @@ section h2 span{color:var(--red)}
 }
 
 .selection{
+  display: flex;
+  flex-direction: column;
   margin: 10px auto 0 auto;
   width: 50%;
 }
@@ -309,7 +311,8 @@ section h2 span{color:var(--red)}
 }
 
 .btn-comprar{
-  margin-top:20px;
+  width: 90%;
+  margin: 20px auto;
   padding:1rem 2rem;
   border:none;
   border-radius:30px;
@@ -552,6 +555,13 @@ section h2 span{color:var(--red)}
   .img-hero{
     width: 59vw;
     height: 75vh;
+  }
+}
+
+@media (min-width: 720px){
+  .img-hero{
+    width:   50vw;
+    height: 80vh;
   }
 }
 
