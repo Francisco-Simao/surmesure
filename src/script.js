@@ -172,6 +172,14 @@ steps.forEach((step, index) => {
     });
 });
 
+function abrirAviso(){
+  document.getElementById("modal-aviso").classList.add("ativo");
+}
+
+function fecharAviso(){
+  document.getElementById("modal-aviso").classList.remove("ativo");
+}
+
 // Inicializa
 atualizarEtapas();
 renderItems();

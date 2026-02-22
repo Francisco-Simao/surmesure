@@ -48,8 +48,8 @@
     <div class="about-text">
       <small>QUEM SOMOS</small>
       <h2>Nossa <span>História</span></h2>
-      <p>Nossa empresa Sur Mesure foi criada em 2026 por 4 estudantes , ela começou por meio de uma estudante que gostaca de moda , ela percebeu que o meracdo de moda brasileiro estava escasso no sentido de não ter muitas roupas variadas que cativassem o cliente. 
-        Ela chamou masi 3 estudantes com a visão de ampliar esta ideia , após uma reunião nós decidimos criar uma empresa onde o cliente cria sua propria roupa , escolhendo tecido , cor , peça , etc. 
+      <p>Nossa empresa Sur Mesure foi criada em 2026 por 4 estudantes , ela começou por meio de uma estudante que gostava de moda , ela percebeu que o mercado de moda brasileiro estava escasso no sentido de não ter muitas roupas variadas que cativassem o cliente. 
+        Ela chamou mais 3 estudantes com a visão de ampliar esta ideia , após uma reunião nós decidimos criar uma empresa onde o cliente criava sua propria roupa , escolhendo tecido , cor , peça e etc. 
         Hoje nossa ideia deu muito certo , nós temos uma empresa se consolidando no mercado , com muitas vendas e clientes . No futuro nós desejamos ter uma loja fisíca e participar de eventos. 
       </p>
       <p>Cada peça carrega o DNA de quem a imaginou.</p>
@@ -73,32 +73,38 @@
   <h2>Crie Sua <span>Própria Roupa</span></h2>
   <p>Escolha cada detalhe da sua peça.</p>
 
-  <div class="create-layout">
-    <div class="steps">
-      <button class="active">01 Peça</button>
-      <button>02 Tecido</button>
-      <button>03 Cor</button>
-      <button>04 Detalhes</button>
-    </div>
 
-    <div class="items">
-      <div class="item">Camisa</div>
-      <div class="item">Calça</div>
-      <div class="item">Blazer</div>
-      <div class="item">Vestido</div>
-      <div class="item">Saia</div>
-    </div>
-  </div>
-
-  <div class="selection">
-      <h3>Preview</h3>
-      <div class="preview-container">
-          <div class="preview-image">
-              <img id="preview-base" src="img/camisa.png" alt="Roupa">
-          </div>
+    <div class="create-layout">
+      <div class="steps">
+        <button class="active">01 Peça</button>
+        <button>02 Tecido</button>
+        <button>03 Cor</button>
+        <button>04 Detalhes</button>
       </div>
-  </div>
 
+      <div class="preview-create">
+        <div class="items">
+          <div class="item">Camisa</div>
+          <div class="item">Calça</div>
+          <div class="item">Blazer</div>
+          <div class="item">Vestido</div>
+          <div class="item">Saia</div>
+        </div>
+        <div class="preview-compra">
+          <div class="selection">
+            <div class="preview-container">
+                <h3>Preview</h3>
+                <div class="preview-image">
+                    <img id="preview-base" src="img/camisa.png" alt="Roupa">
+                </div>
+            </div>
+          </div>
+          <button class="btn-comprar" onclick="abrirAviso()">
+                  Comprar Agora
+          </button>
+        </div>
+      </div>
+    </div>
 </section>
 
 <footer class="footer" id="footer">
@@ -123,6 +129,14 @@
       <p>© 2026 Sur Mesure. Todos os direitos reservados.</p>
     </div>
 
+
+    <div id="modal-aviso" class="modal">
+      <div class="modal-conteudo">
+        <h3>🚧 Em Desenvolvimento</h3>
+        <p>Esta funcionalidade ainda não está disponível.</p>
+        <button onclick="fecharAviso()">Fechar</button>
+      </div>
+    </div>
   </div>
 </footer>
 
