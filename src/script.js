@@ -1,5 +1,5 @@
 // =============================
-// SUR MESURE - SISTEMA CORRIGIDO
+// SUR MESURE - SISTEMA LIMPO
 // =============================
 
 const steps = document.querySelectorAll(".steps button");
@@ -15,7 +15,6 @@ let escolha = {
     detalhes: ""
 };
 
-// Opções
 const opcoes = [
     ["Camisa", "Calça", "Blazer", "Vestido", "Saia"],
     ["Algodão Italiano", "Linho Premium", "Lã Fria", "Seda", "Veludo"],
@@ -23,13 +22,15 @@ const opcoes = [
     ["Botão Dourado", "Lapela Fina", "Bolso Interno", "Punho Francês"]
 ];
 
-// Atualiza botão ativo
+// =============================
+// ETAPAS
+// =============================
+
 function atualizarEtapas() {
     steps.forEach(btn => btn.classList.remove("active"));
     steps[currentStep].classList.add("active");
 }
 
-// Renderiza opções
 function renderItems() {
     itemsContainer.innerHTML = "";
 
@@ -38,17 +39,27 @@ function renderItems() {
         div.classList.add("item");
         div.innerText = opcao;
 
-        div.addEventListener("click", () => {
-            selecionarItem(opcao);
+        div.addEventListener("click", (event) => {
+            selecionarItem(opcao, event);
         });
 
         itemsContainer.appendChild(div);
     });
 }
 
-// Selecionar item
-function selecionarItem(valor) {
+// =============================
+// SELECIONAR ITEM
+// =============================
 
+function selecionarItem(valor, event) {
+
+    document.querySelectorAll(".item").forEach(item => {
+        item.classList.remove("selected");
+    });
+
+    event.target.classList.add("selected");
+
+    // Salva escolha
     if (currentStep === 0) {
         escolha.peca = formatarNome(valor);
         atualizarImagemBase();
@@ -67,28 +78,42 @@ function selecionarItem(valor) {
         escolha.detalhes = valor;
     }
 
+    // Atualiza resumo em tempo real no desktop
+    if (window.innerWidth >= 901) {
+        atualizarResumo();
+    }
+
+    // Avança etapa
     if (currentStep < 3) {
         currentStep++;
         atualizarEtapas();
         renderItems();
     } else {
-        mostrarResumo();
+        if (window.innerWidth < 901) {
+            mostrarResumo();
+        }
     }
 }
 
-// Preview peça
-function atualizarPreviewPeca(valor) {
-    if (!preview) return;
+// =============================
+// RESUMO MOBILE
+// =============================
 
-    preview.style.borderRadius = "20px";
-
-    if (valor === "Vestido") {
-        preview.style.height = "280px";
-        preview.style.borderRadius = "40px 40px 20px 20px";
-    } else {
-        preview.style.height = "250px";
-    }
+function mostrarResumo() {
+    itemsContainer.innerHTML = `
+        <div style="color:white">
+            <h3>Resumo do Pedido</h3>
+            <p><strong>Peça:</strong> ${escolha.peca}</p>
+            <p><strong>Tecido:</strong> ${escolha.tecido}</p>
+            <p><strong>Cor:</strong> ${escolha.cor}</p>
+            <p><strong>Detalhes:</strong> ${escolha.detalhes}</p>
+        </div>
+    `;
 }
+
+// =============================
+// IMAGEM
+// =============================
 
 function formatarNome(texto) {
     return texto
@@ -122,48 +147,21 @@ function atualizarCor() {
     }, 200);
 }
 
+// =============================
+// RESUMO DESKTOP
+// =============================
 
-
-// Preview cor
-function atualizarPreviewCor(valor) {
-    if (!preview) return;
-
-    const cores = {
-        "Preto": "#111",
-        "Branco": "#f2f2f2",
-        "Azul Marinho": "#1c2a48",
-        "Cinza": "#555",
-        "Bordô": "#6a1b2e"
-    };
-
-    preview.style.background = cores[valor];
+function atualizarResumo() {
+    document.getElementById("resumo-peca").innerText = escolha.peca || "-";
+    document.getElementById("resumo-tecido").innerText = escolha.tecido || "-";
+    document.getElementById("resumo-cor").innerText = escolha.cor || "-";
+    document.getElementById("resumo-detalhes").innerText = escolha.detalhes || "-";
 }
 
-// Preview detalhe
-function atualizarPreviewDetalhe(valor) {
-    if (!preview) return;
+// =============================
+// CLICK MANUAL NAS ETAPAS
+// =============================
 
-    if (valor === "Botão Dourado") {
-        preview.style.boxShadow = "0 0 25px gold";
-    } else {
-        preview.style.boxShadow = "0 20px 40px rgba(0,0,0,0.4)";
-    }
-}
-
-// Resumo final
-function mostrarResumo() {
-    itemsContainer.innerHTML = `
-        <div style="color:white">
-            <h3>Resumo do Pedido</h3>
-            <p><strong>Peça:</strong> ${escolha.peca}</p>
-            <p><strong>Tecido:</strong> ${escolha.tecido}</p>
-            <p><strong>Cor:</strong> ${escolha.cor}</p>
-            <p><strong>Detalhes:</strong> ${escolha.detalhes}</p>
-        </div>
-    `;
-}
-
-// Permite clicar manualmente nas etapas também
 steps.forEach((step, index) => {
     step.addEventListener("click", () => {
         currentStep = index;
@@ -171,6 +169,10 @@ steps.forEach((step, index) => {
         renderItems();
     });
 });
+
+// =============================
+// MODAL
+// =============================
 
 function abrirAviso(){
   document.getElementById("modal-aviso").classList.add("ativo");
@@ -180,6 +182,9 @@ function fecharAviso(){
   document.getElementById("modal-aviso").classList.remove("ativo");
 }
 
-// Inicializa
+// =============================
+// INICIALIZA
+// =============================
+
 atualizarEtapas();
 renderItems();

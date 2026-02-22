@@ -91,18 +91,53 @@
           <div class="item">Saia</div>
         </div>
         <div class="preview-compra">
-          <div class="selection">
-            <div class="preview-container">
-                <h3>Preview</h3>
-                <div class="preview-image">
-                    <img id="preview-base" src="img/camisa.png" alt="Roupa">
-                </div>
+
+        <div class="preview-wrapper">
+
+    <!-- PREVIEW -->
+    <div class="selection">
+      <div class="preview-compra">
+        <div class="preview-container">
+            <h3>Preview</h3>
+            <div class="preview-image">
+                <img id="preview-base" src="img/camisa-branco.png" alt="Roupa">
             </div>
-          </div>
-          <button class="btn-comprar" onclick="abrirAviso()">
-                  Comprar Agora
-          </button>
         </div>
+            </div>
+        <button class="btn-comprar" onclick="abrirAviso()">
+              Comprar Agora
+        </button>
+      </div>
+
+    <!-- RESUMO DINÂMICO -->
+    <div class="resumo-live">
+        <h3>Seu Pedido</h3>
+
+        <div class="linha">
+            <span>Peça:</span>
+            <strong id="resumo-peca">-</strong>
+        </div>
+
+        <div class="linha">
+            <span>Tecido:</span>
+            <strong id="resumo-tecido">-</strong>
+        </div>
+
+        <div class="linha">
+            <span>Cor:</span>
+            <strong id="resumo-cor">-</strong>
+        </div>
+
+        <div class="linha">
+            <span>Detalhes:</span>
+            <strong id="resumo-detalhes">-</strong>
+        </div>
+
+    </div>
+
+  </div>
+
+</div>
       </div>
     </div>
 </section>
