@@ -91,8 +91,8 @@ header nav a{
   left:50%;
   transform:translateX(-50%);
   text-align:center;
-  z-index:5;
-  width:600px;
+  z-index: 120;
+  width: 600px;
 }
 
 /* Ajuste do título */
@@ -289,7 +289,8 @@ section h2 span{color:var(--red)}
   background:rgba(255,255,255,.03);
   border-radius:30px;
   padding:1.5rem;
-  margin-top: 10px;
+  margin: 10px auto 0 auto;
+  width: 50%;
 }
 .selection img{
   width:100%;
@@ -299,7 +300,6 @@ section h2 span{color:var(--red)}
 
 
 .preview-image img{
-
   transition: opacity 0.3s ease;
 }
 
@@ -360,7 +360,24 @@ section h2 span{color:var(--red)}
 }
 
 /* Responsivo */
+
+@media (max-width: 480px) {
+
+  .item{
+    padding: 1.5rem;
+  }
+
+  .selection{
+    width: 90%;
+  }
+  
+}
+
 @media (max-width: 768px) {
+  .img-hero{
+    width:80vw;
+  }
+
   .footer-container {
     flex-direction: column;
     text-align: center;
