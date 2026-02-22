@@ -110,10 +110,11 @@ header nav a{
 
 .img-hero {
   background-color: green;
-  width:100vw;
-  height: 60vh;
+  width:100svw;
+  height: 60%;
   background: url(../img/hero-modelo.png);
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
   background-position: right;
 }
 
@@ -553,15 +554,15 @@ section h2 span{color:var(--red)}
 
 @media (min-width: 445px){
   .img-hero{
-    width: 59vw;
-    height: 75vh;
+    width: 67svw;
+    height: 85%;
   }
 }
 
 @media (min-width: 720px){
   .img-hero{
-    width:   50vw;
-    height: 80vh;
+    width:  40svw;
+    height: 80%;
   }
 }
 
@@ -573,8 +574,8 @@ section h2 span{color:var(--red)}
 
 @media (min-width: 901px){
   .img-hero{
-    width: 40vw;
-    height:83vh;
+    width: 40svw;
+    height:83%;
   }
 
   .create-layout{
@@ -621,7 +622,7 @@ section h2 span{color:var(--red)}
 
 @media (min-width: 1024px){
   .img-hero{
-    width: 40vw;
-    height:90vh;
+    width: 40svw;
+    height:84%;
   }
 }
