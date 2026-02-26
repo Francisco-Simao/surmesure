@@ -187,7 +187,7 @@ nav a:hover::after {
 }
 
 .hero-left h1 span{
-  color:#c4475a;
+  color:#d4af37;
 }
 
 /* STATS */
@@ -231,7 +231,7 @@ nav a:hover::after {
     margin: 2%;
 }
 .stat span{
-  color:var(--red);
+  color:#d4af37;
   font-size:1.6rem;
 }
 .stat p{font-size:.8rem;color:#bbb}
@@ -244,7 +244,9 @@ section h2{
   font-family:'Playfair Display',serif;
   font-size:3.2rem;
 }
-section h2 span{color:var(--red)}
+section h2 span{
+  color:#d4af37;
+}
 
 /* ABOUT */
 .about{
